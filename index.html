@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saiyaara — SJSU Bollywood Fusion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --midnight:#0a1029;
+    --navy:#131c47;
+    --navy-soft:#1a2557;
+    --indigo:#33449a;
+    --indigo-light:#5568c4;
+    --periwinkle:#a7a5e6;
+    --periwinkle-light:#dcdaf6;
+    --starlight:#f5f4fb;
+    --muted:#9099c9;
+    --hairline:rgba(167,165,230,0.18);
+    --shadow:0 20px 60px rgba(4,7,25,0.55);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--midnight);
+    color:var(--starlight);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:500;
+    letter-spacing:0.01em;
+    margin:0;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  @media(max-width:640px){.wrap{padding:0 20px;}}
+
+  /* ---------- Starfield backdrop ---------- */
+  .stars{
+    position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:
+      radial-gradient(1.5px 1.5px at 20% 30%, rgba(245,244,251,0.55) 50%, transparent),
+      radial-gradient(1.5px 1.5px at 70% 65%, rgba(245,244,251,0.4) 50%, transparent),
+      radial-gradient(1px 1px at 45% 15%, rgba(245,244,251,0.5) 50%, transparent),
+      radial-gradient(1px 1px at 85% 40%, rgba(245,244,251,0.35) 50%, transparent),
+      radial-gradient(1.5px 1.5px at 10% 80%, rgba(245,244,251,0.45) 50%, transparent),
+      radial-gradient(1px 1px at 60% 90%, rgba(245,244,251,0.3) 50%, transparent),
+      radial-gradient(1.5px 1.5px at 92% 85%, rgba(245,244,251,0.4) 50%, transparent),
+      radial-gradient(1px 1px at 33% 55%, rgba(245,244,251,0.3) 50%, transparent);
+    background-repeat:repeat;
+    background-size:600px 600px;
+    opacity:0.6;
+  }
+
+  /* ---------- Nav ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    padding:20px 0;
+    transition:background .35s ease, padding .35s ease, border-color .35s ease;
+    border-bottom:1px solid transparent;
+  }
+  header.scrolled{
+    background:rgba(10,16,41,0.85);
+    backdrop-filter:blur(10px);
+    padding:12px 0;
+    border-bottom:1px solid var(--hairline);
+  }
+  nav.wrap{display:flex;align-items:center;justify-content:space-between;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand-mark{width:30px;height:30px;flex:none;}
+  .brand-name{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:0.06em;color:var(--starlight);}
+  .nav-links{display:flex;gap:36px;font-size:14px;letter-spacing:0.02em;}
+  .nav-links a{color:var(--muted);position:relative;padding:4px 0;transition:color .25s;}
+  .nav-links a:hover, .nav-links a:focus-visible{color:var(--starlight);}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--periwinkle);
+    transition:width .3s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{
+    border:1px solid var(--periwinkle);
+    padding:9px 20px;border-radius:999px;font-size:13px;letter-spacing:0.02em;
+    transition:background .25s, color .25s;
+  }
+  .nav-cta:hover{background:var(--periwinkle);color:var(--midnight);}
+  .menu-btn{display:none;background:none;border:none;color:var(--starlight);font-size:24px;cursor:pointer;}
+
+  @media(max-width:860px){
+    .nav-links{
+      position:fixed;inset:0 0 0 auto;height:100vh;width:min(78vw,320px);
+      background:var(--navy);flex-direction:column;justify-content:center;
+      padding:40px;gap:28px;font-size:18px;
+      transform:translateX(100%);transition:transform .4s ease;
+      border-left:1px solid var(--hairline);
+    }
+    .nav-links.open{transform:translateX(0);}
+    .nav-cta{display:none;}
+    .menu-btn{display:block;z-index:60;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;
+    text-align:center;overflow:hidden;
+    background:radial-gradient(ellipse at 50% 20%, #1a2568 0%, #0a1029 62%);
+  }
+  .hero-video-slot{
+    position:absolute;inset:0;z-index:0;
+    background:radial-gradient(ellipse at 50% 20%, #1a2568 0%, #0a1029 62%);
+  }
+  .hero-video-slot video{width:100%;height:100%;object-fit:cover;}
+  .hero-upload-btn{
+    position:absolute;z-index:3;top:26px;right:32px;
+    display:flex;align-items:center;gap:8px;
+    background:rgba(10,16,41,0.55);border:1px solid var(--hairline);
+    color:var(--starlight);font-size:12.5px;letter-spacing:0.02em;
+    padding:9px 16px 9px 12px;border-radius:999px;cursor:pointer;
+    backdrop-filter:blur(6px);transition:border-color .25s,background .25s;
+  }
+  .hero-upload-btn:hover{border-color:var(--periwinkle);background:rgba(10,16,41,0.8);}
+  .hero-upload-btn .ring{
+    width:20px;height:20px;border-radius:50%;border:1px solid var(--periwinkle);
+    display:flex;align-items:center;justify-content:center;color:var(--periwinkle);font-size:9px;flex:none;
+  }
+  @media(max-width:640px){.hero-upload-btn{top:auto;bottom:120px;right:20px;}}
+  .hero-scrim{
+    position:absolute;inset:0;z-index:1;
+    background:linear-gradient(180deg, rgba(8,12,34,0.55) 0%, rgba(8,12,34,0.72) 55%, var(--midnight) 100%);
+  }
+  .hero-content{position:relative;z-index:2;padding:0 24px;}
+  .hero-eyebrow{
+    display:inline-block;font-size:13px;color:var(--periwinkle);
+    letter-spacing:0.14em;margin-bottom:22px;font-weight:500;
+  }
+  .hero img.logo{width:min(220px,42vw);margin:0 auto 18px;filter:drop-shadow(0 12px 40px rgba(51,68,154,0.55));}
+  .hero h1{
+    font-size:clamp(40px,7vw,84px);
+    line-height:0.98;color:var(--starlight);
+  }
+  .hero p.tagline{
+    max-width:560px;margin:24px auto 0;color:var(--muted);
+    font-size:17px;line-height:1.65;
+  }
+  .hero-actions{display:flex;gap:16px;justify-content:center;margin-top:38px;flex-wrap:wrap;}
+  .btn{
+    padding:14px 30px;border-radius:999px;font-size:14px;letter-spacing:0.03em;
+    display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:1px solid transparent;
+    transition:transform .25s ease, background .25s, border-color .25s, color .25s;
+    font-family:'Inter',sans-serif;font-weight:500;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-solid{background:linear-gradient(135deg,var(--indigo-light),var(--indigo));color:var(--starlight);}
+  .btn-ghost{border-color:var(--hairline);color:var(--starlight);}
+  .btn-ghost:hover{border-color:var(--periwinkle);}
+  .scroll-cue{
+    position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:2;
+    width:1px;height:56px;background:linear-gradient(var(--periwinkle),transparent);
+    opacity:0.6;
+  }
+
+  /* ---------- Section shell ---------- */
+  section{position:relative;z-index:1;padding:120px 0;}
+  @media(max-width:640px){section{padding:80px 0;}}
+  .kicker{color:var(--periwinkle);font-size:14px;letter-spacing:0.03em;margin-bottom:14px;font-family:'Inter',sans-serif;font-weight:500;}
+  .section-head{max-width:640px;margin-bottom:64px;}
+  .section-head h2{font-size:clamp(30px,4vw,48px);color:var(--starlight);}
+  .section-head p{color:var(--muted);margin-top:16px;font-size:16px;line-height:1.7;max-width:520px;}
+
+  /* ---------- About / stats ---------- */
+  .about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:80px;align-items:start;}
+  @media(max-width:860px){.about-grid{grid-template-columns:1fr;gap:48px;}}
+  .about-copy p{color:var(--muted);font-size:16.5px;line-height:1.85;margin:0 0 18px;}
+  .about-copy p:last-child{margin-bottom:0;}
+  .stat-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--hairline);}
+  .stat-row{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding:22px 0;border-bottom:1px solid var(--hairline);
+  }
+  .stat-row .num{font-family:'Cormorant Garamond',serif;font-size:40px;color:var(--periwinkle-light);}
+  .stat-row .label{color:var(--muted);font-size:14px;text-align:right;max-width:180px;}
+
+  /* ---------- Video / reel grid ---------- */
+  .reel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  @media(max-width:900px){.reel-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:600px){.reel-grid{grid-template-columns:1fr;}}
+  .reel-card{
+    position:relative;border-radius:14px;overflow:hidden;background:var(--navy);
+    border:1px solid var(--hairline);aspect-ratio:9/13;
+  }
+  .reel-grid .reel-card:nth-child(1){grid-row:span 2;aspect-ratio:auto;}
+  @media(max-width:600px){.reel-grid .reel-card:nth-child(1){grid-row:auto;aspect-ratio:9/13;}}
+  .upload-slot{
+    position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:14px;cursor:pointer;text-align:center;padding:20px;
+    background:linear-gradient(160deg,var(--navy-soft),var(--navy) 70%);
+    transition:background .3s ease;
+  }
+  .upload-slot:hover{background:linear-gradient(160deg,#212d63,var(--navy) 70%);}
+  .upload-slot .ring{
+    width:52px;height:52px;border-radius:50%;border:1px solid var(--periwinkle);
+    display:flex;align-items:center;justify-content:center;color:var(--periwinkle);font-size:20px;
+    flex:none;
+  }
+  .upload-slot .slot-title{font-size:15px;color:var(--starlight);font-weight:500;}
+  .upload-slot .slot-hint{font-size:12.5px;color:var(--muted);max-width:180px;}
+  .reel-card video{width:100%;height:100%;object-fit:cover;display:block;}
+  .reel-card .replace-btn{
+    position:absolute;top:10px;right:10px;z-index:3;
+    background:rgba(10,16,41,0.75);border:1px solid var(--hairline);color:var(--starlight);
+    font-size:11px;padding:6px 12px;border-radius:999px;cursor:pointer;letter-spacing:0.02em;
+    opacity:0;transition:opacity .25s;
+  }
+  .reel-card:hover .replace-btn{opacity:1;}
+  .reel-card .cap{
+    position:absolute;left:14px;bottom:12px;z-index:3;font-size:13px;color:var(--starlight);
+    background:rgba(10,16,41,0.5);padding:6px 12px;border-radius:999px;backdrop-filter:blur(4px);
+  }
+  input[type="file"]{display:none;}
+
+  /* ---------- Team ---------- */
+  .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px 22px;}
+  @media(max-width:860px){.team-grid{grid-template-columns:repeat(2,1fr);}}
+  .team-card{text-align:left;}
+  .avatar{
+    aspect-ratio:1;border-radius:12px;
+    background:linear-gradient(150deg,var(--indigo-light),var(--navy) 75%);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Cormorant Garamond',serif;font-size:34px;color:var(--periwinkle-light);
+    margin-bottom:14px;border:1px solid var(--hairline);
+  }
+  .team-card h3{font-size:19px;color:var(--starlight);font-weight:500;}
+  .team-card .role{color:var(--periwinkle);font-size:12.5px;margin-top:4px;letter-spacing:0.02em;}
+
+  /* ---------- Achievements timeline ---------- */
+  .timeline{border-left:1px solid var(--hairline);margin-left:6px;}
+  .tl-item{position:relative;padding:0 0 52px 40px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:"";position:absolute;left:-6px;top:4px;width:11px;height:11px;border-radius:50%;
+    background:var(--midnight);border:2px solid var(--periwinkle);
+  }
+  .tl-year{color:var(--periwinkle);font-size:14px;font-weight:600;letter-spacing:0.03em;margin-bottom:8px;}
+  .tl-item h3{font-size:23px;color:var(--starlight);margin-bottom:8px;}
+  .tl-item p{color:var(--muted);font-size:15px;line-height:1.7;max-width:520px;margin:0;}
+
+  /* ---------- Join ---------- */
+  .join{
+    background:linear-gradient(180deg,var(--navy) 0%, var(--midnight) 100%);
+    border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);
+  }
+  .join-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:70px;}
+  @media(max-width:860px){.join-grid{grid-template-columns:1fr;gap:44px;}}
+  .join-copy p{color:var(--muted);font-size:16px;line-height:1.75;margin-top:16px;}
+  .social-row{display:flex;gap:14px;margin-top:30px;}
+  .social-row a{
+    border:1px solid var(--hairline);border-radius:999px;padding:10px 18px;font-size:13px;
+    color:var(--starlight);transition:border-color .25s,color .25s;
+  }
+  .social-row a:hover{border-color:var(--periwinkle);color:var(--periwinkle);}
+  form{display:flex;flex-direction:column;gap:18px;}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  @media(max-width:520px){.field-row{grid-template-columns:1fr;}}
+  label{font-size:12.5px;color:var(--muted);letter-spacing:0.02em;margin-bottom:7px;display:block;}
+  input,textarea,select{
+    width:100%;background:transparent;border:none;border-bottom:1px solid var(--hairline);
+    color:var(--starlight);font-family:'Inter',sans-serif;font-size:15px;padding:9px 0;
+    transition:border-color .25s;
+  }
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--periwinkle);}
+  textarea{resize:vertical;min-height:80px;}
+  select option{background:var(--navy);}
+  form .btn{align-self:flex-start;margin-top:8px;border:none;}
+  .form-note{font-size:12.5px;color:var(--muted);margin-top:-6px;}
+
+  /* ---------- Footer ---------- */
+  footer{padding:44px 0;border-top:1px solid var(--hairline);}
+  .footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .footer-row .brand-name{font-size:18px;}
+  .foot-links{display:flex;gap:24px;font-size:13px;color:var(--muted);}
+  .foot-links a:hover{color:var(--starlight);}
+  .copyline{color:var(--muted);font-size:12.5px;}
+
+  ::selection{background:var(--indigo);color:var(--starlight);}
+</style>
+</head>
+<body>
+
+<div class="stars"></div>
+
+<header id="siteHeader">
+  <nav class="wrap">
+    <a href="#top" class="brand">
+      <img src="logo-monogram.png" alt="Saiyaara monogram" class="brand-mark">
+      <span class="brand-name">Saiyaara</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#reel">Reel</a>
+      <a href="#team">Team</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#join">Join</a>
+    </div>
+    <a href="#join" class="nav-cta">Join the team</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-video-slot" id="heroVideoSlot"></div>
+  <button class="hero-upload-btn" id="heroUploadBtn" type="button">
+    <span class="ring">▶</span> Add hero video
+  </button>
+  <div class="hero-scrim"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">San Jose State University</span>
+    <img src="logo-transparent.png" alt="Saiyaara" class="logo">
+    <h1>Saiyaara</h1>
+    <p class="tagline">SJSU's competitive Bollywood fusion dance team — where classical roots, hip-hop precision, and pure Spartan energy share one stage.</p>
+    <div class="hero-actions">
+      <a href="#reel" class="btn btn-solid">Watch the reel</a>
+      <a href="#join" class="btn btn-ghost">Audition for Saiyaara</a>
+    </div>
+  </div>
+  <div class="scroll-cue"></div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-copy">
+      <div class="kicker">About the team</div>
+      <h2 style="font-size:clamp(28px,3.6vw,42px);color:var(--starlight);margin-bottom:22px;">A team built on rhythm, culture, and family.</h2>
+      <p>Saiyaara is San Jose State's competitive Bollywood fusion dance team, blending Bollywood, classical Indian, and hip-hop styles into one high-energy performance style. We compete on the national collegiate Bollywood fusion circuit and perform across the Bay Area throughout the year.</p>
+      <p>Every set starts with a story — pulled from film, folklore, or our own team's history — and gets built out through months of choreography, formations, and conditioning before it ever reaches a stage. Replace this paragraph with your team's real founding story, mission, or circuit history.</p>
+    </div>
+    <div class="stat-list">
+      <div class="stat-row"><span class="num">2024</span><span class="label">Founded at San Jose State University</span></div>
+      <div class="stat-row"><span class="num">18</span><span class="label">Dancers on the current roster</span></div>
+      <div class="stat-row"><span class="num">5</span><span class="label">Competitions per season</span></div>
+      <div class="stat-row"><span class="num">12+</span><span class="label">Hrs of practice each week</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="reel">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Showcase</div>
+      <h2>The reel</h2>
+      <p>Every tile below is an open slot — click to upload your own clip. Swap these for competition sets, promos, and behind-the-scenes footage as you have them.</p>
+    </div>
+    <div class="reel-grid" id="reelGrid">
+      <div class="reel-card" data-label="2026 Bid Video"></div>
+      <div class="reel-card" data-label="Prelims Performance"></div>
+      <div class="reel-card" data-label="Rush Promo"></div>
+      <div class="reel-card" data-label="Behind the Scenes"></div>
+      <div class="reel-card" data-label="Alumni Night"></div>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">The roster</div>
+      <h2>Meet the team</h2>
+      <p>Placeholder cards for your captains and members — swap in names, roles, and headshots.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card"><div class="avatar">AK</div><h3>Captain Name</h3><div class="role">Team Captain</div></div>
+      <div class="team-card"><div class="avatar">RS</div><h3>Captain Name</h3><div class="role">Co-Captain</div></div>
+      <div class="team-card"><div class="avatar">MP</div><h3>Member Name</h3><div class="role">Choreography Lead</div></div>
+      <div class="team-card"><div class="avatar">SJ</div><h3>Member Name</h3><div class="role">Social Media Lead</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="achievements">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Milestones</div>
+      <h2>Achievements</h2>
+      <p>A running record of where the team has performed and placed. Update each entry as your season unfolds.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">2026</div>
+        <h3>Competition placement or milestone</h3>
+        <p>Short description of the event, the set's theme, and the result. Replace with your team's actual placements and highlights.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2025</div>
+        <h3>Competition placement or milestone</h3>
+        <p>Short description of the event, the set's theme, and the result.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2024</div>
+        <h3>Saiyaara founded at San Jose State University</h3>
+        <p>A short note on how and why the team started, and its first showcase.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="join" id="join">
+  <div class="wrap join-grid">
+    <div class="join-copy">
+      <div class="kicker">Get involved</div>
+      <h2 style="font-size:clamp(28px,3.6vw,42px);color:var(--starlight);">Dance with Saiyaara.</h2>
+      <p>Auditions run at the start of each semester and are open to all SJSU students — no prior Bollywood experience required. Follow along for tryout dates, workshop invites, and show announcements.</p>
+      <div class="social-row">
+        <a href="#" target="_blank" rel="noopener">Instagram</a>
+        <a href="#" target="_blank" rel="noopener">YouTube</a>
+        <a href="#" target="_blank" rel="noopener">TikTok</a>
+      </div>
+    </div>
+    <form id="joinForm">
+      <div class="field-row">
+        <div>
+          <label for="fname">Full name</label>
+          <input type="text" id="fname" placeholder="Jane Doe" required>
+        </div>
+        <div>
+          <label for="email">SJSU email</label>
+          <input type="email" id="email" placeholder="jane.doe@sjsu.edu" required>
+        </div>
+      </div>
+      <div class="field-row">
+        <div>
+          <label for="year">Class standing</label>
+          <select id="year">
+            <option>Freshman</option>
+            <option>Sophomore</option>
+            <option>Junior</option>
+            <option>Senior</option>
+            <option>Grad student</option>
+          </select>
+        </div>
+        <div>
+          <label for="experience">Dance background</label>
+          <select id="experience">
+            <option>New to dance</option>
+            <option>Some experience</option>
+            <option>Formally trained</option>
+            <option>Competed before</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label for="message">Anything else we should know?</label>
+        <textarea id="message" placeholder="Styles you love, past teams, questions for us..."></textarea>
+      </div>
+      <p class="form-note">This form is a placeholder — connect it to email, Google Forms, or your backend of choice.</p>
+      <button type="submit" class="btn btn-solid">Submit interest form</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <span class="brand-name serif">Saiyaara</span>
+    <div class="foot-links">
+      <a href="#about">About</a>
+      <a href="#reel">Reel</a>
+      <a href="#team">Team</a>
+      <a href="#join">Join</a>
+    </div>
+    <span class="copyline">© 2026 Saiyaara — San Jose State University</span>
+  </div>
+</footer>
+
+<script>
+  // Header scroll state
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    menuBtn.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuBtn.textContent = '☰';
+  }));
+
+  // Generic: wire up a video upload placeholder inside a container element
+  function wireUploadSlot(container, label, { fill = true } = {}) {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'video/*';
+
+    const slot = document.createElement('div');
+    slot.className = 'upload-slot';
+    slot.innerHTML = `
+      <div class="ring">▶</div>
+      <div class="slot-title">${label}</div>
+      <div class="slot-hint">Click to upload a video</div>
+    `;
+    slot.appendChild(input);
+    container.appendChild(slot);
+
+    slot.addEventListener('click', () => input.click());
+
+    input.addEventListener('change', () => {
+      const file = input.files[0];
+      if (!file) return;
+      const url = URL.createObjectURL(file);
+
+      const video = document.createElement('video');
+      video.src = url;
+      video.controls = true;
+      video.autoplay = true;
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+      if (fill) { video.style.width = '100%'; video.style.height = '100%'; video.style.objectFit = 'cover'; }
+
+      container.innerHTML = '';
+      container.appendChild(video);
+
+      const replaceBtn = document.createElement('button');
+      replaceBtn.className = 'replace-btn';
+      replaceBtn.textContent = 'Replace video';
+      replaceBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        container.innerHTML = '';
+        wireUploadSlot(container, label, { fill });
+      });
+      container.appendChild(replaceBtn);
+
+      if (label) {
+        const cap = document.createElement('div');
+        cap.className = 'cap';
+        cap.textContent = label;
+        container.appendChild(cap);
+      }
+    });
+  }
+
+  // Wire the reel grid cards
+  document.querySelectorAll('#reelGrid .reel-card').forEach(card => {
+    wireUploadSlot(card, card.dataset.label || 'Upload video');
+  });
+
+  // Wire the hero background slot via the small floating button
+  (function(){
+    const slot = document.getElementById('heroVideoSlot');
+    const btn = document.getElementById('heroUploadBtn');
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'video/*';
+    btn.appendChild(input);
+
+    btn.addEventListener('click', () => input.click());
+
+    input.addEventListener('change', () => {
+      const file = input.files[0];
+      if (!file) return;
+      const url = URL.createObjectURL(file);
+
+      slot.innerHTML = '';
+      const video = document.createElement('video');
+      video.src = url;
+      video.autoplay = true;
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+      slot.appendChild(video);
+
+      btn.innerHTML = '<span class="ring">↻</span> Replace video';
+      btn.appendChild(input);
+    });
+  })();
+
+  // Placeholder form submit
+  document.getElementById('joinForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    const original = btn.textContent;
+    btn.textContent = 'Thanks — we\'ll be in touch!';
+    setTimeout(() => { btn.textContent = original; e.target.reset(); }, 2400);
+  });
+</script>
+
+</body>
+</html>
