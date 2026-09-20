@@ -1,112 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Saiyaara — SJSU Bollywood Fusion</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saiyaara — SJSU Bollywood Fusion</title>
+  <link rel="stylesheet" href="styles.css?v=6">
 </head>
-<body>
 
-<header id="siteHeader">
-  <nav class="wrap">
-    <a href="index.html" class="brand">
-      <img src="logo-monogram.png" alt="Saiyaara monogram" class="brand-mark">
-      <span class="brand-name">Saiyaara</span>
-    </a>
-    <div class="nav-links" id="navLinks">
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html">About</a>
-      <a href="reel.html">Reel</a>
-      <a href="team.html">Team</a>
-      <a href="achievements.html">Achievements</a>
-      <a href="join.html">Join</a>
-    </div>
-    <a href="join.html" class="nav-cta">Join the team</a>
-    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
-  </nav>
-</header>
+<body class="homepage">
 
-<section class="hero navy-band" id="top">
-  <div class="hero-video-slot" id="heroVideoSlot"></div>
-  <button class="hero-upload-btn" id="heroUploadBtn" type="button">
-    <span class="ring">▶</span> Add hero video (.mp4)
-  </button>
-  <div class="hero-scrim"></div>
-  <div class="hero-content">
-    <span class="hero-eyebrow">San Jose State University</span>
-    <img src="logo-transparent.png" alt="Saiyaara" class="logo">
-    <h1>Saiyaara</h1>
-    <p class="tagline">SJSU's competitive Bollywood fusion dance team — where classical roots, hip-hop precision, and pure Spartan energy share one stage.</p>
-    <div class="hero-actions">
-      <a href="reel.html" class="btn btn-solid">Watch the reel</a>
-      <a href="join.html" class="btn btn-ghost">Audition for Saiyaara</a>
-    </div>
-  </div>
-  <div class="scroll-cue"></div>
-</section>
+  <header id="siteHeader">
+    <nav class="wrap">
 
-<section>
-  <div class="wrap about-grid">
-    <div class="about-copy">
-      <div class="kicker">About the team</div>
-      <h2 style="font-size:clamp(28px,3.6vw,42px);margin-bottom:22px;">A team built on rhythm, culture, and family.</h2>
-      <p>Saiyaara is San Jose State's competitive Bollywood fusion dance team, blending Bollywood, classical Indian, and hip-hop styles into one high-energy performance style. We compete on the national collegiate Bollywood fusion circuit and perform across the Bay Area throughout the year.</p>
-      <a href="about.html" class="btn btn-ghost" style="margin-top:8px;">Read our full story</a>
-    </div>
-    <div class="stat-list">
-      <div class="stat-row"><span class="num">2024</span><span class="label">Founded at San Jose State University</span></div>
-      <div class="stat-row"><span class="num">18</span><span class="label">Dancers on the current roster</span></div>
-      <div class="stat-row"><span class="num">5</span><span class="label">Competitions per season</span></div>
-      <div class="stat-row"><span class="num">12+</span><span class="label">Hrs of practice each week</span></div>
-    </div>
-  </div>
-</section>
+      <a href="index.html" class="brand">
+        <img
+          src="logo-monogram.png"
+          alt="Saiyaara monogram"
+          class="brand-mark"
+        >
+        <span class="brand-name">Saiyaara</span>
+      </a>
 
-<section class="soft-bg">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker">Showcase</div>
-      <h2>From the reel</h2>
-      <p>A preview of the team in motion — click a tile to drop in an .mp4, or head to the full reel for more.</p>
-    </div>
-    <div class="reel-grid">
-      <div class="reel-card feature" data-upload-slot data-label="2026 Bid Video"></div>
-      <div class="reel-card" data-upload-slot data-label="Prelims Performance"></div>
-      <div class="reel-card" data-upload-slot data-label="Rush Promo"></div>
-    </div>
-    <div style="text-align:center;margin-top:44px;">
-      <a href="reel.html" class="btn btn-ghost">View the full reel</a>
-    </div>
-  </div>
-</section>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="comp.html">Competition</a>
+        <a href="team.html">Board</a>
+        <a href="sponsors.html">Sponsors</a>
 
-<section class="navy-band cta-band">
-  <div class="stars"></div>
-  <div class="wrap">
-    <h2>Dance with Saiyaara.</h2>
-    <p>Auditions run at the start of each semester and are open to all SJSU students — no prior Bollywood experience required.</p>
-    <div class="hero-actions">
-      <a href="join.html" class="btn btn-solid">Audition for Saiyaara</a>
-      <a href="achievements.html" class="btn btn-ghost">See our achievements</a>
-    </div>
-  </div>
-</section>
+        <div class="dropdown">
+          <a href="#" class="drop-btn">More ▾</a>
 
-<footer class="navy-band">
-  <div class="stars"></div>
-  <div class="wrap footer-row">
-    <span class="brand-name serif">Saiyaara</span>
-    <div class="foot-links">
-      <a href="about.html">About</a>
-      <a href="reel.html">Reel</a>
-      <a href="team.html">Team</a>
-      <a href="join.html">Join</a>
-    </div>
-    <span class="copyline">© 2026 Saiyaara — San Jose State University</span>
-  </div>
-</footer>
+          <div class="dropdown-content">
+            <a href="teams.html">Teams</a>
+            <a href="winners.html">Winners</a>
+            <a href="history.html">History</a>
+          </div>
+        </div>
+      </div>
 
-<script src="script.js"></script>
+      <a href="join.html" class="nav-cta">Get Involved</a>
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        type="button"
+        aria-label="Toggle menu"
+      >
+        ☰
+      </button>
+
+    </nav>
+  </header>
+
+
+  <main>
+
+    <!-- March to Mars Hero -->
+    <section
+      class="hero-reference"
+      id="top"
+      aria-label="Saiyaara March to Mars"
+    >
+
+      <img
+        src="march-to-mars-hero-hq.png"
+        alt="Saiyaara March to Mars homepage featuring an astronaut, Mars, stars, and competition information"
+        class="hero-reference-image"
+      >
+
+      <!-- Animated space effects -->
+      <div
+        class="hero-starfield starfield-one"
+        aria-hidden="true"
+      ></div>
+
+      <div
+        class="hero-starfield starfield-two"
+        aria-hidden="true"
+      ></div>
+
+      <div
+        class="shooting-star shooting-star-one"
+        aria-hidden="true"
+      ></div>
+
+      <div
+        class="shooting-star shooting-star-two"
+        aria-hidden="true"
+      ></div>
+
+      <div
+        class="mars-glow"
+        aria-hidden="true"
+      ></div>
+
+      <!-- Clickable areas over hero artwork -->
+      <div
+        class="hero-reference-links"
+        aria-label="Homepage hero links"
+      >
+
+        <a
+          class="ref-explore"
+          href="comp.html"
+          aria-label="Explore the Competition"
+        ></a>
+
+        <a
+          class="ref-board-button"
+          href="team.html"
+          aria-label="Meet the Board"
+        ></a>
+
+        <a
+          class="ref-scroll"
+          href="#about-home"
+          aria-label="Scroll to explore"
+        ></a>
+
+      </div>
+
+    </section>
+
+
+    <!-- About Saiyaara -->
+    <section id="about-home" class="home-about">
+      <div class="wrap home-about-stack">
+        <div class="about-video">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="media/about-saiyaara.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div class="about-copy about-copy-centered">
+          <div class="kicker">ABOUT SAIYAARA</div>
+          <h2 class="about-title">Built for the Dance Community.</h2>
+          <p>Saiyaara is a student-run collegiate Bollywood Fusion dance competition at San José State University.</p>
+          <p>Created to celebrate South Asian culture and collegiate performance, Saiyaara brings university dance teams together for a competition centered around creativity, community, and friendly rivalry.</p>
+          <p>Behind the stage, SJSU students work across production, hospitality, outreach, sponsorships, marketing, and competition logistics to create an experience that performers and audiences can remember.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CTA -->
+    <section class="navy-band cta-band">
+
+      <div class="stars"></div>
+
+      <div class="wrap">
+
+        <h2>
+          Be Part of Saiyaara.
+        </h2>
+
+        <p>
+          Whether you're interested in helping build the competition,
+          partnering with us, or following the teams taking the stage,
+          there are many ways to be part of Saiyaara.
+        </p>
+
+        <div class="hero-actions">
+
+          <a
+            href="join.html"
+            class="btn btn-solid"
+          >
+            Get Involved
+          </a>
+
+          <a
+            href="team.html"
+            class="btn btn-ghost"
+          >
+            Meet the Board
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer class="navy-band">
+
+    <div class="stars"></div>
+
+    <div class="wrap footer-row">
+
+      <span class="brand-name serif">
+        Saiyaara
+      </span>
+
+      <div class="foot-links">
+        <a href="about.html">About</a>
+        <a href="comp.html">Competition</a>
+        <a href="team.html">Board</a>
+        <a href="sponsors.html">Sponsors</a>
+        <a href="teams.html">Teams</a>
+        <a href="winners.html">Winners</a>
+      </div>
+
+      <span class="copyline">
+        © 2026 Saiyaara — San José State University
+      </span>
+
+    </div>
+
+  </footer>
+
+
+  <script src="script.js"></script>
+
 </body>
 </html>

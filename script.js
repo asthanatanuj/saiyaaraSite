@@ -111,37 +111,7 @@ document.querySelectorAll('[data-upload-slot]').forEach(card => {
   wireUploadSlot(card, card.dataset.label || 'Upload video');
 });
 
-// ---------- Hero background video (home page only) ----------
-(function () {
-  const slot = document.getElementById('heroVideoSlot');
-  const btn = document.getElementById('heroUploadBtn');
-  if (!slot || !btn) return;
-
-  const input = document.createElement('input');
-  input.type = 'file';
-  input.accept = 'video/mp4,.mp4';
-  btn.appendChild(input);
-
-  btn.addEventListener('click', () => input.click());
-
-  input.addEventListener('change', () => {
-    const file = input.files[0];
-    if (!file || !isMp4(file)) return;
-    const url = URL.createObjectURL(file);
-
-    slot.innerHTML = '';
-    const video = document.createElement('video');
-    video.src = url;
-    video.autoplay = true;
-    video.muted = true;
-    video.loop = true;
-    video.playsInline = true;
-    slot.appendChild(video);
-
-    btn.innerHTML = '<span class="ring">↻</span> Replace video';
-    btn.appendChild(input);
-  });
-})();
+// ---------- Hero background video is loaded directly from media/saiyaara-hero.mp4 ----------
 
 // ---------- Join form stub ----------
 const joinForm = document.getElementById('joinForm');
