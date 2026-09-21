@@ -53,56 +53,53 @@
 </section>
 
 
-<section>
-  <div class="wrap join-grid">
+<section class="join-socials">
+  <div class="wrap">
     <div class="join-copy">
-      <h2 style="font-size:clamp(26px,3.2vw,36px);">Get Involved</h2>
-      <p>Saiyaara is powered by SJSU students working across production, hospitality, marketing, outreach, partnerships, and event operations. Join our team of organizers.</p>
-      <div class="social-row">
-        <a href="#" target="_blank" rel="noopener">Instagram</a>
-        <a href="#" target="_blank" rel="noopener">YouTube</a>
-        <a href="#" target="_blank" rel="noopener">TikTok</a>
+      <div class="kicker">Stay connected</div>
+      <h2>Get Involved</h2>
+      <p>Saiyaara is powered by SJSU students working across production, hospitality, marketing, outreach, partnerships, and event operations. Get involved by reaching out on our socials.</p>
+      <div class="social-row" aria-label="Saiyaara social profiles">
+        <a href="https://www.instagram.com/sjsaiyaara/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+        <a href="https://www.tiktok.com/@sj.saiyaara?lang=en" target="_blank" rel="noopener noreferrer">TikTok ↗</a>
       </div>
     </div>
-    <form id="joinForm">
-      <div class="field-row">
-        <div>
-          <label for="fname">Full name</label>
-          <input type="text" id="fname" placeholder="Jane Doe" required>
+
+    <div class="social-preview-grid">
+      <article class="social-preview-card">
+        <div class="social-window-bar">
+          <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+          <span class="social-window-title">Instagram</span>
+          <a href="https://www.instagram.com/sjsaiyaara/" target="_blank" rel="noopener noreferrer" aria-label="Open Saiyaara on Instagram">Open ↗</a>
         </div>
-        <div>
-          <label for="email">Email address</label>
-          <input type="email" id="email" placeholder="you@example.com" required>
+        <div class="social-preview-body instagram-preview">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/sjsaiyaara/" data-instgrm-version="14">
+            <a href="https://www.instagram.com/sjsaiyaara/" target="_blank" rel="noopener noreferrer">
+              <strong>@sjsaiyaara</strong>
+              <span>View Saiyaara on Instagram</span>
+            </a>
+          </blockquote>
         </div>
-      </div>
-      <div>
-        <label for="message">How would you like to get involved?</label>
-        <textarea id="message" placeholder="e.g., production, hospitality, marketing, outreach, etc."></textarea>
-      </div>
-      <p class="form-note">This form is a placeholder — connect it to email, Google Forms, or your backend of choice.</p>
-      <button type="submit" class="btn btn-solid">Submit interest form</button>
-    </form>>
-            <option>Senior</option>
-            <option>Grad student</option>
-          </select>
+      </article>
+
+      <article class="social-preview-card">
+        <div class="social-window-bar">
+          <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+          <span class="social-window-title">TikTok</span>
+          <a href="https://www.tiktok.com/@sj.saiyaara?lang=en" target="_blank" rel="noopener noreferrer" aria-label="Open Saiyaara on TikTok">Open ↗</a>
         </div>
-        <div>
-          <label for="experience">Dance background</label>
-          <select id="experience">
-            <option>New to dance</option>
-            <option>Some experience</option>
-            <option>Formally trained</option>
-            <option>Competed before</option>
-          </select>
+        <div class="social-preview-body tiktok-preview">
+          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@sj.saiyaara" data-unique-id="sj.saiyaara" data-embed-type="creator">
+            <section>
+              <a href="https://www.tiktok.com/@sj.saiyaara?lang=en" target="_blank" rel="noopener noreferrer">
+                <strong>@sj.saiyaara</strong>
+                <span>View Saiyaara on TikTok</span>
+              </a>
+            </section>
+          </blockquote>
         </div>
-      </div>
-      <div>
-        <label for="message">Anything else we should know?</label>
-        <textarea id="message" placeholder="Styles you love, past teams, questions for us..."></textarea>
-      </div>
-      <p class="form-note">This form is a placeholder — connect it to email, Google Forms, or your backend of choice.</p>
-      <button type="submit" class="btn btn-solid">Submit interest form</button>
-    </form>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -122,6 +119,8 @@
   </div>
 </footer>
 
+<script async src="https://www.instagram.com/embed.js"></script>
+<script async src="https://www.tiktok.com/embed.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

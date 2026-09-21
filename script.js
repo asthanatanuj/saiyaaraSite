@@ -112,15 +112,3 @@ document.querySelectorAll('[data-upload-slot]').forEach(card => {
 });
 
 // ---------- Hero background video is loaded directly from media/saiyaara-hero.mp4 ----------
-
-// ---------- Join form stub ----------
-const joinForm = document.getElementById('joinForm');
-if (joinForm) {
-  joinForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const btn = e.target.querySelector('button[type="submit"]');
-    const original = btn.textContent;
-    btn.textContent = "Thanks — we'll be in touch!";
-    setTimeout(() => { btn.textContent = original; e.target.reset(); }, 2400);
-  });
-}
