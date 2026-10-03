@@ -11,14 +11,61 @@ const menuBtn = document.getElementById('menuBtn');
 const navLinks = document.getElementById('navLinks');
 if (menuBtn && navLinks) {
   menuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-    menuBtn.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
+    const isOpen = navLinks.classList.toggle('open');
+    menuBtn.textContent = isOpen ? '✕' : '☰';
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
   });
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
     navLinks.classList.remove('open');
     menuBtn.textContent = '☰';
+    menuBtn.setAttribute('aria-expanded', 'false');
+    navLinks.querySelectorAll('.dropdown.open').forEach(dropdown => {
+      dropdown.classList.remove('open');
+      dropdown.querySelector('.drop-btn')?.setAttribute('aria-expanded', 'false');
+    });
   }));
 }
+
+// ---------- More menu (mouse, keyboard, and touch) ----------
+document.querySelectorAll('.drop-btn').forEach(button => {
+  const dropdown = button.closest('.dropdown');
+  if (!dropdown) return;
+
+  button.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const willOpen = !dropdown.classList.contains('open');
+
+    document.querySelectorAll('.dropdown.open').forEach(openDropdown => {
+      openDropdown.classList.remove('open');
+      openDropdown.querySelector('.drop-btn')?.setAttribute('aria-expanded', 'false');
+    });
+
+    dropdown.classList.toggle('open', willOpen);
+    button.setAttribute('aria-expanded', String(willOpen));
+  });
+});
+
+document.addEventListener('click', (event) => {
+  if (event.target.closest('.dropdown')) return;
+
+  document.querySelectorAll('.dropdown.open').forEach(dropdown => {
+    dropdown.classList.remove('open');
+    dropdown.querySelector('.drop-btn')?.setAttribute('aria-expanded', 'false');
+  });
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key !== 'Escape') return;
+
+  document.querySelectorAll('.dropdown.open').forEach(dropdown => {
+    dropdown.classList.remove('open');
+    const button = dropdown.querySelector('.drop-btn');
+    button?.setAttribute('aria-expanded', 'false');
+    button?.focus();
+  });
+});
 
 // ---------- MP4 upload placeholders (reel grid + any tagged slot) ----------
 const MAX_MB = 250;
