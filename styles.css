@@ -983,9 +983,10 @@ nav.wrap {
   display: grid;
 
   grid-template-columns:
-    1.25fr
-    0.875fr
-    0.875fr;
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
 
   gap: 18px;
 }
@@ -993,7 +994,7 @@ nav.wrap {
 .community-photo {
   margin: 0;
 
-  min-height: 340px;
+  aspect-ratio: 4 / 3;
 
   overflow: hidden;
 
@@ -1006,10 +1007,12 @@ nav.wrap {
 }
 
 .community-photo-wide {
-  min-height: 420px;
+  min-height: 0;
 }
 
 .community-photo img {
+  display: block;
+
   width: 100%;
   height: 100%;
 
@@ -1171,7 +1174,7 @@ nav.wrap {
 }
 
 .page-photo-frame {
-  min-height: 360px;
+  aspect-ratio: 4 / 3;
   margin: 0;
   overflow: hidden;
 
@@ -1182,9 +1185,10 @@ nav.wrap {
 }
 
 .page-photo-frame img {
+  display: block;
+
   width: 100%;
   height: 100%;
-  min-height: 360px;
 
   object-fit: cover;
 }
@@ -2107,7 +2111,7 @@ footer {
   }
 
   .community-photo-wide {
-    grid-column: 1 / -1;
+    grid-column: auto;
   }
 
   .committee {
@@ -2205,16 +2209,6 @@ footer {
 
   .community-photo-wide {
     grid-column: auto;
-  }
-
-  .community-photo,
-  .community-photo-wide {
-    min-height: 280px;
-  }
-
-  .page-photo-frame,
-  .page-photo-frame img {
-    min-height: 280px;
   }
 
   .sponsor-cta {
