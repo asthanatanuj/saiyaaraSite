@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sponsors — Saiyaara</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Sponsors | Saiyaara</title>
+  <link rel="stylesheet" href="styles.css?v=8">
 </head>
-<body>
+<body class="sponsors-page">
 
 <header id="siteHeader">
   <nav class="wrap">
     <a href="index.html" class="brand">
-      <img src="logo-monogram.png" alt="Saiyaara monogram" class="brand-mark">
-      <span class="brand-name">Saiyaara</span>
+      <img src="images/saiyaara-logo-white.png" alt="Saiyaara logo" class="brand-mark">
     </a>
     <div class="nav-links" id="navLinks">
       <a href="index.html">Home</a>
@@ -25,7 +24,6 @@
         <div class="dropdown-content">
           <a href="teams.html">Teams</a>
           <a href="join.html">Get Involved</a>
-          <a href="reel.html">Competition Highlights</a>
         </div>
       </div>
     </div>
@@ -34,56 +32,91 @@
   </nav>
 </header>
 
-<section class="page-hero navy-band">
-  <div class="stars"></div>
-  <div class="wrap">
-    <div class="kicker">OUR PARTNERS</div>
-    <h1>Powered by Our Community.</h1>
-    <p>Partner with a student-led competition that celebrates South Asian performance, builds campus community, and welcomes university teams to San José.</p>
-  </div>
-</section>
-<section class="page-photo-feature">
-  <div class="wrap page-photo-feature-grid">
-    <div class="page-photo-copy">
-      <div class="kicker">SAIYAARA COMMUNITY</div>
-      <h2>A Community Worth Supporting</h2>
+<main>
+  <section class="page-hero navy-band">
+    <div class="stars"></div>
+    <div class="wrap">
+      <div class="kicker">OUR PARTNERS</div>
+      <h1>Powered by Our Community.</h1>
+      <p>Partner with a student-led competition that celebrates South Asian performance, builds campus community, and welcomes university teams to San José.</p>
     </div>
-    <figure class="page-photo-frame"><img src="images/saiyaara-community-1.jpg" alt="Saiyaara community members together" loading="lazy"></figure>
-  </div>
-</section>
+  </section>
 
-
-<section class="partner-section" id="partner">
-  <div class="wrap">
-    <div class="partner-intro">
-      <div>
-        <div class="kicker">SPONSOR SAIYAARA</div>
-        <h2>Help us build a stage worthy of the teams.</h2>
+  <section class="page-photo-feature">
+    <div class="wrap page-photo-feature-grid">
+      <div class="page-photo-copy">
+        <div class="kicker">SAIYAARA COMMUNITY</div>
+        <h2>A Community Worth Supporting</h2>
       </div>
-      <p>Sponsor support helps student organizers create a polished, welcoming event while keeping the experience accessible for performers and audiences. We are developing partnership opportunities for organizations that want to invest in student leadership, culture, and the performing arts.</p>
+      <figure class="page-photo-frame"><img src="images/saiyaara-community-1.jpg" alt="Saiyaara community members together" loading="lazy"></figure>
     </div>
+  </section>
 
-    <div class="info-card-grid sponsor-card-grid">
-      <article class="info-card"><span class="info-card-number">01</span><h3>Production</h3><p>Support lighting, sound, staging, venue operations, and the technical details that help every team perform at its best.</p></article>
-      <article class="info-card"><span class="info-card-number">02</span><h3>Team Experience</h3><p>Help provide thoughtful hospitality, meals, transportation support, and an organized experience for visiting dancers.</p></article>
-      <article class="info-card"><span class="info-card-number">03</span><h3>Community Access</h3><p>Make it easier for students and community members to experience collegiate South Asian dance and connect with the artists behind it.</p></article>
-    </div>
-
-    <div class="sponsor-cta">
+  <section class="packet-section" id="partner" aria-labelledby="packet-title">
+    <div class="packet-heading">
       <div>
-        <div class="kicker">LET'S BUILD IT TOGETHER</div>
-        <h2>Interested in partnering with Saiyaara?</h2>
-        <p>Reach out through our official social channels and a member of the board will connect with you about current sponsorship opportunities.</p>
+        <div class="kicker">SPONSORSHIP PACKET</div>
+        <h1 id="packet-title">Partner With Us</h1>
       </div>
-      <a href="join.html" class="btn btn-solid">Contact the Board</a>
+      <div class="packet-heading-actions">
+        <a href="mailto:finance.sjsaiyaara@gmail.com" class="btn btn-solid">Email Finance</a>
+        <a href="media/sponsorship-packet.pdf" class="btn btn-ghost" download>Download PDF</a>
+      </div>
     </div>
-  </div>
-</section>
+
+    <div class="packet-viewer" data-packet-viewer aria-label="Four page sponsorship packet viewer">
+      <div class="packet-stage" aria-live="polite">
+        <figure class="packet-slide is-active" data-packet-page>
+          <img src="images/sponsorship/page-1.png" alt="Sponsorship packet cover with event date, venue, contact email, and donation information">
+        </figure>
+        <figure class="packet-slide" data-packet-page hidden>
+          <img src="images/sponsorship/page-2.png" alt="About Saiyaara and the inaugural Bollywood-fusion collegiate dance competition">
+        </figure>
+        <figure class="packet-slide" data-packet-page hidden>
+          <img src="images/sponsorship/page-3.png" alt="Community reach, social media presence, projected attendance, dancers, viewers, and universities">
+        </figure>
+        <figure class="packet-slide" data-packet-page hidden>
+          <img src="images/sponsorship/page-4.png" alt="Bronze, Silver, Gold, and Title sponsorship package comparison">
+        </figure>
+
+        <button class="packet-arrow packet-arrow-prev" type="button" data-packet-prev aria-label="Show previous sponsorship packet page">
+          <span aria-hidden="true">‹</span>
+        </button>
+        <button class="packet-arrow packet-arrow-next" type="button" data-packet-next aria-label="Show next sponsorship packet page">
+          <span aria-hidden="true">›</span>
+        </button>
+      </div>
+
+      <div class="packet-controls">
+        <span class="packet-status" data-packet-status>Page 1 of 4</span>
+        <div class="packet-dots" aria-label="Choose a sponsorship packet page">
+          <button class="is-active" type="button" data-packet-dot="0" aria-label="Show page 1" aria-current="page"></button>
+          <button type="button" data-packet-dot="1" aria-label="Show page 2"></button>
+          <button type="button" data-packet-dot="2" aria-label="Show page 3"></button>
+          <button type="button" data-packet-dot="3" aria-label="Show page 4"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sponsor-contact-section">
+    <div class="wrap">
+      <div class="sponsor-cta">
+        <div>
+          <div class="kicker">LET'S BUILD IT TOGETHER</div>
+          <h2>Interested in partnering with Saiyaara?</h2>
+          <p>Reach out through our official social channels and a member of the board will connect with you about current sponsorship opportunities.</p>
+        </div>
+        <a href="join.html" class="btn btn-solid">Contact the Board</a>
+      </div>
+    </div>
+  </section>
+</main>
 
 <footer class="navy-band">
   <div class="stars"></div>
   <div class="wrap footer-row">
-    <span class="brand-name serif">Saiyaara</span>
+    <img class="footer-logo" src="images/saiyaara-logo-white.png" alt="Saiyaara">
     <div class="foot-links">
       <a href="about.html">About</a>
       <a href="comp.html">Competition</a>
@@ -92,7 +125,7 @@
       <a href="teams.html">Teams</a>
       <a href="join.html">Get Involved</a>
     </div>
-    <span class="copyline">© 2026 Saiyaara — San Jose State University</span>
+    <span class="copyline">© 2026 Saiyaara | San Jose State University</span>
   </div>
 </footer>
 

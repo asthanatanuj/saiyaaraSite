@@ -159,3 +159,60 @@ document.querySelectorAll('[data-upload-slot]').forEach(card => {
 });
 
 // ---------- Hero background video is loaded directly from media/saiyaara-hero.mp4 ----------
+
+// ---------- Sponsorship packet viewer ----------
+document.querySelectorAll('[data-packet-viewer]').forEach(viewer => {
+  const pages = Array.from(viewer.querySelectorAll('[data-packet-page]'));
+  const dots = Array.from(viewer.querySelectorAll('[data-packet-dot]'));
+  const status = viewer.querySelector('[data-packet-status]');
+  const previous = viewer.querySelector('[data-packet-prev]');
+  const next = viewer.querySelector('[data-packet-next]');
+  const stage = viewer.querySelector('.packet-stage');
+  let currentPage = 0;
+  let pointerStart = null;
+
+  function showPage(index) {
+    currentPage = (index + pages.length) % pages.length;
+
+    pages.forEach((page, pageIndex) => {
+      const isCurrent = pageIndex === currentPage;
+      page.hidden = !isCurrent;
+      page.classList.toggle('is-active', isCurrent);
+    });
+
+    dots.forEach((dot, dotIndex) => {
+      const isCurrent = dotIndex === currentPage;
+      dot.classList.toggle('is-active', isCurrent);
+      if (isCurrent) {
+        dot.setAttribute('aria-current', 'page');
+      } else {
+        dot.removeAttribute('aria-current');
+      }
+    });
+
+    if (status) status.textContent = `Page ${currentPage + 1} of ${pages.length}`;
+  }
+
+  previous?.addEventListener('click', () => showPage(currentPage - 1));
+  next?.addEventListener('click', () => showPage(currentPage + 1));
+  dots.forEach(dot => dot.addEventListener('click', () => showPage(Number(dot.dataset.packetDot))));
+
+  viewer.addEventListener('keydown', event => {
+    if (event.key === 'ArrowLeft') showPage(currentPage - 1);
+    if (event.key === 'ArrowRight') showPage(currentPage + 1);
+  });
+
+  stage?.addEventListener('pointerdown', event => {
+    pointerStart = event.clientX;
+  });
+
+  stage?.addEventListener('pointerup', event => {
+    if (pointerStart === null) return;
+    const distance = event.clientX - pointerStart;
+    pointerStart = null;
+    if (Math.abs(distance) < 50) return;
+    showPage(currentPage + (distance < 0 ? 1 : -1));
+  });
+
+  showPage(0);
+});
