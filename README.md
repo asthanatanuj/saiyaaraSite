@@ -41,7 +41,7 @@ Open `http://127.0.0.1:8765/` in your browser. Keep the server running while you
 
 ## Future Saiyaara app
 
-We plan to build a companion app for competing teams, inspired by [Norman Nachle 26](https://apps.apple.com/us/app/norman-nachle-26/id6759936132). Each team would have its own login and a central place to find:
+We plan to build a companion app for competing team. Each team would have its own login and a central place to find:
 
 - The competition schedule and its team-specific itinerary.
 - Performance, rehearsal, and check-in times.
