@@ -1,45 +1,51 @@
 # Saiyaara
 
-This repository contains the public website for Saiyaara, San Jose State University's collegiate Bollywood fusion dance competition. The site introduces the event, its board and committees, participating teams, and sponsorship opportunities.
+**Live site:** [saiyaara-site.vercel.app](https://saiyaara-site.vercel.app/index.html)
 
-## Website tools and technologies
+Saiyaara is San Jose State University's collegiate Bollywood fusion dance competition. This repository powers its public website, where visitors can learn about the event, meet the board and committees, explore the competition, and find sponsorship information.
 
-- **HTML5** for the site's pages and content.
-- **CSS3** for responsive layouts, colors, typography, and animations.
+## Tools and technologies
+
+The site is a static frontend built with:
+
+- **HTML5** for page structure and content.
+- **CSS3** for responsive layouts, styling, and animations.
 - **Vanilla JavaScript** for navigation, mobile menus, video preview slots, and the sponsorship packet viewer.
 - **Google Fonts** for DM Sans and Manrope.
-- **Local media assets** for board photography, logos, videos, and the sponsorship PDF.
+- **Local images, videos, and PDFs** for board photos, logos, event media, and the sponsorship packet.
 - **Instagram and TikTok embeds** on the Get Involved page.
-- **Git and GitHub** for version control and collaboration.
+- **Git and GitHub** for version control, with **Vercel** serving the live site.
 
-The website is static. It has no package manager, build step, backend, or login system.
+There is no build step or package installation. The current website has no backend or team login system.
 
-## Run locally
+## Run the website locally
 
-From the repository root, start a local server:
+From the repository root, run:
 
 ```bash
 python3 -m http.server 8765
 ```
 
-Then open `http://127.0.0.1:8765/` in a browser. Keep the command running while viewing the site; closing it will stop the local preview.
+Open `http://127.0.0.1:8765/` in your browser. Keep the server running while you preview the site.
 
-## Repository layout
+## Repository structure
 
-- `index.html` — home page
-- `about.html`, `comp.html`, `teams.html`, `team.html`, `sponsors.html`, `join.html` — other public pages
-- `styles.css` — shared styling
-- `script.js` — shared browser interactions
-- `images/` — logos, photos, and sponsorship packet page images
-- `media/` — videos and downloadable sponsorship packet
+| Path | Purpose |
+| --- | --- |
+| `index.html` | Home page |
+| `about.html`, `comp.html`, `teams.html`, `team.html`, `sponsors.html`, `join.html` | Other public pages |
+| `styles.css` | Shared styles |
+| `script.js` | Shared browser interactions |
+| `images/` | Logos, photos, and sponsorship packet page images |
+| `media/` | Videos and the downloadable sponsorship packet |
 
 ## Future Saiyaara app
 
-We plan to develop a companion app for competing teams, inspired by the event experience of [Norman Nachle 26](https://apps.apple.com/us/app/norman-nachle-26/id6759936132). The goal is to give each team an individualized login and one reliable place for competition information, including:
+We plan to build a companion app for competing teams, inspired by [Norman Nachle 26](https://apps.apple.com/us/app/norman-nachle-26/id6759936132). Each team would have its own login and a central place to find:
 
-- The overall competition schedule and each team's own itinerary.
-- Performance, rehearsal, check-in, and other important times.
-- Venue locations, event logistics, and useful contacts.
-- Team-specific updates and announcements as plans change.
+- The competition schedule and its team-specific itinerary.
+- Performance, rehearsal, and check-in times.
+- Venue details, logistics, and useful contacts.
+- Announcements and updates when plans change.
 
-This app is a future project. Its platform, technical stack, and release date have not been decided, and the current website does not provide team accounts.
+The app is planned for a later phase. Its platform, technical stack, and release date have not been decided; team accounts are not part of this website today.
