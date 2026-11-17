@@ -2479,6 +2479,8 @@ section, .committee { scroll-margin-top: 94px; }
 .committee-count { color: #7c8995; font-size: 11px; font-weight: 800; letter-spacing: .1em; white-space: nowrap; }
 .committee-photo { position: relative; height: 410px; margin: 0 0 22px; overflow: hidden; border-radius: 8px; background: #d7dfe5; }
 .committee-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.committee#hospitality-chairs .committee-photo { height: 500px; }
+.committee#hospitality-chairs .committee-photo img { object-position: center 18%; }
 .committee-photo::after { content: ''; position: absolute; inset: 55% 0 0; background: linear-gradient(transparent,rgba(5,17,31,.7)); pointer-events: none; }
 .committee-photo figcaption { position: absolute; z-index: 1; left: 22px; bottom: 20px; color: white; font-family: 'Manrope',sans-serif; font-size: 19px; font-weight: 700; }
 .team-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 18px; }
@@ -2486,7 +2488,6 @@ section, .committee { scroll-margin-top: 94px; }
 .team-card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(11,28,47,.09); }
 .team-portrait { width: 100%; aspect-ratio: 1.15; background: #dfe5ea; overflow: hidden; }
 .team-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
-.team-portrait-sanjay img { transform: scale(4.3); transform-origin: 35% 25%; }
 .team-card-copy { padding: 17px 18px 19px; }
 .team-card h3 { color: var(--navy-deep); font-family: 'Manrope',sans-serif; font-size: clamp(16px,1.35vw,19px); font-weight: 700; line-height: 1.35; letter-spacing: -.035em; }
 .team-card p { margin-top: 7px; color: #a34b1c; font-size: 12px; font-weight: 700; }
@@ -2520,6 +2521,7 @@ section, .committee { scroll-margin-top: 94px; }
   .full-board-photo img { aspect-ratio: 1.25; }
   .committee-nav { top: 63px; }
   .committee-photo { height: 300px; }
+  .committee#hospitality-chairs .committee-photo { height: 300px; }
   .team-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .board-cta-inner { align-items: flex-start; flex-direction: column; }
 }
