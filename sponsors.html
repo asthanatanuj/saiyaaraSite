@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sponsors | Saiyaara</title>
   <link rel="icon" type="image/svg+xml" href="images/saiyaara-logo-transparent-navy.svg">
-<link rel="stylesheet" href="styles.css?v=14">
+<link rel="stylesheet" href="styles.css?v=15">
 </head>
 <body class="sponsors-page">
 
@@ -79,9 +79,10 @@
         <div class="kicker">SPONSORSHIP PACKET</div>
         <h1 id="packet-title">Partner With Us</h1>
         <p class="packet-intro">The packet outlines our standard options. Final benefits are tailored to each sponsor agreement.</p>
+        <p class="packet-intro"><strong>Competition update:</strong> As a National Desi Dance League competition, Saiyaara expects twelve university teams. The packet reflects earlier projections.</p>
       </div>
       <div class="packet-heading-actions">
-        <a href="mailto:finance.sjsaiyaara@gmail.com" class="btn btn-solid">Email Finance</a>
+        <a href="#sponsor-contact" class="btn btn-solid">Contact Us</a>
         <a href="media/sponsorship-packet.pdf" class="btn btn-ghost" download>Download PDF</a>
       </div>
     </div>
@@ -121,15 +122,40 @@
     </div>
   </section>
 
-  <section class="sponsor-contact-section">
+  <section class="sponsor-contact-section" id="sponsor-contact" aria-labelledby="sponsor-contact-title">
     <div class="wrap">
       <div class="sponsor-cta">
-        <div>
+        <div class="sponsor-contact-copy">
           <div class="kicker">LET'S BUILD IT TOGETHER</div>
-          <h2>Interested in partnering with Saiyaara?</h2>
-          <p>Reach out through our official social channels and a member of the board will connect with you about current sponsorship opportunities.</p>
+          <h2 id="sponsor-contact-title">Interested in partnering with Saiyaara?</h2>
+          <p>Tell us a little about your organization and what you have in mind. Our finance team will follow up about sponsorship opportunities.</p>
+          <p>You can also email us directly at <a href="mailto:finance.sjsaiyaara@gmail.com">finance.sjsaiyaara@gmail.com</a>.</p>
         </div>
-        <a href="join.html" class="btn btn-solid">Contact the Board</a>
+        <form class="sponsor-form" action="https://formsubmit.co/finance.sjsaiyaara@gmail.com" method="post">
+          <input type="hidden" name="_subject" value="Saiyaara sponsorship inquiry">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_url" value="https://saiyaara-site.vercel.app/sponsors.html">
+          <div class="sponsor-form-row">
+            <div class="sponsor-field">
+              <label for="sponsor-name">Your name</label>
+              <input id="sponsor-name" name="name" autocomplete="name" maxlength="100" required>
+            </div>
+            <div class="sponsor-field">
+              <label for="sponsor-email">Email address</label>
+              <input id="sponsor-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+            </div>
+          </div>
+          <div class="sponsor-field">
+            <label for="sponsor-organization">Organization</label>
+            <input id="sponsor-organization" name="organization" autocomplete="organization" maxlength="120" required>
+          </div>
+          <div class="sponsor-field">
+            <label for="sponsor-message">How would you like to partner with us?</label>
+            <textarea id="sponsor-message" name="message" rows="5" maxlength="1500" required></textarea>
+          </div>
+          <button class="btn btn-solid" type="submit">Send inquiry</button>
+          <p class="sponsor-form-note">Submissions are processed by FormSubmit and emailed to our finance team.</p>
+        </form>
       </div>
     </div>
   </section>
@@ -151,6 +177,6 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="script.js?v=15"></script>
 </body>
 </html>

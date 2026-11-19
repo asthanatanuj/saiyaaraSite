@@ -1208,6 +1208,8 @@ nav.wrap {
   justify-content: flex-start;
 }
 
+.experience-copy p a { color: var(--periwinkle); text-decoration: underline; }
+
 .partner-section {
   padding: 100px 0;
 }
@@ -1796,6 +1798,15 @@ section.tight {
   color: var(--periwinkle);
 }
 
+.liaison-callout { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin: 0 0 48px; padding: 28px 32px; border: 1px solid var(--hairline); border-radius: 12px; background: #fff; }
+.liaison-callout h3 { color: var(--navy-deep); font-size: clamp(22px, 2.4vw, 28px); }
+.liaison-callout p { margin-top: 8px; color: var(--muted); line-height: 1.6; }
+.liaison-callout .btn { flex: 0 0 auto; }
+
+@media (max-width: 600px) {
+  .liaison-callout { align-items: flex-start; flex-direction: column; padding: 24px; }
+}
+
 .social-preview-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2259,6 +2270,22 @@ footer {
   background: white;
 }
 
+.sponsor-contact-copy { flex: 1 1 0; min-width: 0; }
+.sponsor-contact-copy a { color: #fff; text-decoration: underline; overflow-wrap: anywhere; }
+.sponsor-form { flex: 1 1 420px; width: 100%; display: grid; gap: 16px; }
+.sponsor-form-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.sponsor-field { display: grid; gap: 7px; }
+.sponsor-field label { color: #fff; font-size: 14px; font-weight: 700; }
+.sponsor-field input, .sponsor-field textarea { width: 100%; padding: 12px 13px; border: 1px solid #c7d1da; border-radius: 6px; background: #fff; color: #102842; font: inherit; }
+.sponsor-field textarea { resize: vertical; }
+.sponsor-form button { justify-self: start; cursor: pointer; }
+.sponsor-cta .sponsor-form-note { margin: 0; color: #d4dee8; font-size: 14px; line-height: 1.5; }
+
+@media (max-width: 600px) {
+  .sponsor-form { flex-basis: auto; }
+  .sponsor-form-row { grid-template-columns: 1fr; }
+}
+
 .packet-section {
   min-height: 100vh;
   padding: 128px 24px 36px;
@@ -2516,11 +2543,17 @@ section, .committee { scroll-margin-top: 94px; }
 .community-strip { background: #f2f4f6; }
 .community-photo { border-radius: 10px; box-shadow: none; }
 .about-video { border-radius: 10px; box-shadow: none; }
-.home-board-photo { position: relative; margin: 0; }
-.home-board-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 38%; }
-.home-board-photo figcaption { position: absolute; inset: auto 0 0; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 30px 34px; color: white; background: linear-gradient(transparent,rgba(5,17,31,.82)); font-size: 16px; font-weight: 700; }
+.home-board-photo { margin: 0; aspect-ratio: auto; }
+.home-board-photo img { display: block; width: 100%; height: auto; }
+.home-board-photo figcaption { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 22px 34px; color: white; background: #0b1c2f; font-size: 16px; font-weight: 700; }
 .home-board-photo figcaption a { flex: 0 0 auto; padding-bottom: 6px; border-bottom: 2px solid #e17a36; font-size: 13px; }
 .home-board-photo figcaption a:hover { color: #ffa966; }
+.home-teaser { padding: 96px 0; background: #fff; }
+.home-teaser-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 56px; }
+.home-teaser-copy h2 { max-width: 520px; font-size: clamp(36px, 4.6vw, 58px); }
+.home-teaser-copy p { max-width: 470px; margin: 18px 0 24px; color: var(--muted); font-size: 17px; line-height: 1.7; }
+.home-teaser-embed { width: 100%; max-width: 500px; justify-self: center; }
+.home-teaser-embed .instagram-media { min-width: 0 !important; width: 100% !important; }
 .cta-band { background: #102842; }
 .packet-section { background: radial-gradient(circle at 20% 10%,rgba(216,104,37,.14),transparent 28%),linear-gradient(180deg,#0b1c2f,#102842); }
 .packet-heading .kicker { color: #f18b46; }
@@ -2545,7 +2578,7 @@ section, .committee { scroll-margin-top: 94px; }
 .board-section-heading h2 { font-size: clamp(32px,4vw,52px); }
 .board-section-heading > p { max-width: 365px; color: var(--muted); font-size: 15px; line-height: 1.65; }
 .full-board-photo { margin: 0; }
-.full-board-photo img { width: 100%; max-height: 640px; aspect-ratio: 1.7; object-fit: cover; object-position: center 40%; border-radius: 8px; }
+.full-board-photo img { display: block; width: 100%; height: auto; border-radius: 8px; }
 .full-board-photo figcaption { margin-top: 14px; color: #71808f; font-size: 12px; letter-spacing: .03em; }
 .committee-nav { position: sticky; top: 72px; z-index: 40; padding: 15px 0; background: #fff; border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
 .committee-nav-inner { display: flex; align-items: center; gap: 12px; overflow-x: auto; scrollbar-width: thin; }
@@ -2564,6 +2597,7 @@ section, .committee { scroll-margin-top: 94px; }
 .committee-count { color: #7c8995; font-size: 11px; font-weight: 800; letter-spacing: .1em; white-space: nowrap; }
 .committee-photo { position: relative; height: 410px; margin: 0 0 22px; overflow: hidden; border-radius: 8px; background: #d7dfe5; }
 .committee-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.committee#registration-chairs .committee-photo img { object-position: center 32%; }
 .committee#hospitality-chairs .committee-photo { height: 500px; }
 .committee#hospitality-chairs .committee-photo img { object-position: center 18%; }
 .committee-photo::after { content: ''; position: absolute; inset: 55% 0 0; background: linear-gradient(transparent,rgba(5,17,31,.7)); pointer-events: none; }
@@ -2599,11 +2633,11 @@ section, .committee { scroll-margin-top: 94px; }
   .hero-content .hero-actions { margin-top: 20px; }
   .hero-content .btn { padding: 11px 16px; font-size: 12px; }
   .home-board-photo figcaption { flex-direction: column; align-items: flex-start; padding: 22px; }
+  .home-teaser-grid { grid-template-columns: 1fr; gap: 30px; }
   .board-hero { padding: 140px 0 65px; }
   .board-hero-inner { min-height: 320px; }
   .board-section-heading { display: block; }
   .board-section-heading > p { margin-top: 14px; }
-  .full-board-photo img { aspect-ratio: 1.25; }
   .committee-nav { top: 63px; }
   .committee-photo { height: 300px; }
   .committee#hospitality-chairs .committee-photo { height: 300px; }
